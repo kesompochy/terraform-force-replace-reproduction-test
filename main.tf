@@ -19,7 +19,6 @@ resource "google_bigquery_dataset" "my_dataset" {
 
 resource "google_bigquery_table" "source_table" {
   dataset_id = google_bigquery_dataset.my_dataset.dataset_id
-  deletion_protection = false
   table_id   = "source_table"
   expiration_time = "0"
   project    = var.project_id
@@ -34,11 +33,10 @@ resource "google_bigquery_table" "source_table" {
   ]
   EOL
 }
-
 /*
 resource "google_bigquery_table" "test_table" {
   dataset_id = google_bigquery_dataset.my_dataset.dataset_id
-  deletion_protection = false
+  // deletion_protection = false
   table_id   = "test_table"
   expiration_time = "0"
   project    = var.project_id
